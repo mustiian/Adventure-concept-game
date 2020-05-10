@@ -24,6 +24,9 @@ public class DialogueActivationEditor : DefaultEditor<DialogueActivation>
 
         activation = (DialogueActivation)target;
 
+        if (dialogueConditions == null)
+            dialogueConditions = activation.GetComponent<DialogueActivationCondition>();
+
         dialogueOptions = new string[allDialogueHandlers.Length];
 
         for (int i = 0; i < allDialogueHandlers.Length; i++)

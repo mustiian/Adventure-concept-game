@@ -12,7 +12,7 @@ public class ResponseButtonsController : MonoBehaviour
 
     private List<GameObject> ActiveButtons = new List<GameObject>();
 
-    public Animator BackgroundPanelAnimator;
+    public Animator BubblePanelAnimator;
 
     public Vector2 Offset;
     public Vector2 Position;
@@ -29,7 +29,7 @@ public class ResponseButtonsController : MonoBehaviour
 
     public void UpdateButtons(List<Dialogue> responses)
     {
-        BackgroundPanelAnimator.SetTrigger(BackgroundPanelAnimator.GetParameter(0).name);
+        BubblePanelAnimator.SetTrigger(BubblePanelAnimator.GetParameter(0).name);
 
         for (int i = 0; i < responses.Count; i++)
         {
@@ -39,7 +39,7 @@ public class ResponseButtonsController : MonoBehaviour
 
     public void DeleteButtons()
     {
-        BackgroundPanelAnimator.SetTrigger(BackgroundPanelAnimator.GetParameter(1).name);
+        BubblePanelAnimator.SetTrigger(BubblePanelAnimator.GetParameter(1).name);
 
         foreach (var item in ActiveButtons)
         {

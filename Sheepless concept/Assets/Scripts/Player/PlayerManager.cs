@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [HideInInspector]
+    public static PlayerManager instance;
+
+    public bool CutsceneState;
+
+    [HideInInspector]
+    public PlayerMovement movement;
+
+    public PlayerAnimationManager animationManager;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance == this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        movement = GetComponent<PlayerMovement>();
+        animationManager = GetComponentInChildren<PlayerAnimationManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void LateUpdate()
     {
-        
+        if (!CutsceneState)
+        {
+            movement.Move();
+            animationManager.MovementAnimation();
+        }
     }
 }

@@ -97,7 +97,7 @@ public class DialoguesHandlerEditor : DefaultEditor<DialoguesHandler>
             if (dialoguesHanlder.dialogueActors.Count > 0)
             {
                 dialoguesHanlder.dialogueActors.RemoveAt(dialoguesHanlder.dialogueActors.Count - 1);
-                dialogueWindow.UpdateActors(dialoguesHanlder.dialogueActors);
+                UpdateActors(dialoguesHanlder.dialogueActors.Count - 1);
 
                 EditorUtility.SetDirty(dialoguesHanlder);
                 EditorSceneManager.MarkSceneDirty(dialoguesHanlder.gameObject.scene);
@@ -146,8 +146,8 @@ public class DialoguesHandlerEditor : DefaultEditor<DialoguesHandler>
                 dialoguesHanlder.dialogueActors[i].ObjectTransform = tmpTransform;
                 dialoguesHanlder.dialogueActors[i].Name = tmpName;
                 dialoguesHanlder.dialogueActors[i].ActorType = tmpType;
-                
-                dialogueWindow.UpdateActors(dialoguesHanlder.dialogueActors);
+
+                UpdateActors(i);
 
                 EditorUtility.SetDirty(dialoguesHanlder);
                 EditorSceneManager.MarkSceneDirty(dialoguesHanlder.gameObject.scene);
@@ -157,6 +157,17 @@ public class DialoguesHandlerEditor : DefaultEditor<DialoguesHandler>
         }
 
         EditorGUILayout.EndVertical();
+    }
+
+    private void UpdateActors(int newActorIndex)
+    {
+        for (int i = 0; i < dialoguesHanlder.data.nodes.Count; i++)
+        {
+            if (dialoguesHanlder.data.nodes[i].ActorIndex == newActorIndex)
+            {
+                dialoguesHanlder.data.nodes[i].CurrentDialogue.ActiveSentence.Position = dialoguesHanlder.dialogueActors[newActorIndex].ObjectTransform;
+            }
+        }
     }
 
     private bool WasSaved()
