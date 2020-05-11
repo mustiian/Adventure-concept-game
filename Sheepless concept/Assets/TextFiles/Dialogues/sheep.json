@@ -1,0 +1,83 @@
+{
+  "passages": [
+    {
+      "text": "Sheep:...\n[[Hello?->HelloSheep]]\n[[So cute sheep!->cuteSheep]]",
+      "links": [
+        {
+          "name": "Hello?",
+          "link": "HelloSheep",
+          "pid": "2"
+        },
+        {
+          "name": "So cute sheep!",
+          "link": "cuteSheep",
+          "pid": "3"
+        }
+      ],
+      "name": "Start",
+      "pid": "1",
+      "position": {
+        "x": "404",
+        "y": "170.5"
+      }
+    },
+    {
+      "text": "Sheep:Are you talking with me?\n[[Yes, I'm talking to you!->CanSpeak]]\n[[Oh, you can speak!->CanSpeak]]\n[[No, I need to go now->End]]",
+      "links": [
+        {
+          "name": "Yes, I'm talking to you!",
+          "link": "CanSpeak",
+          "pid": "4"
+        },
+        {
+          "name": "Oh, you can speak!",
+          "link": "CanSpeak",
+          "pid": "4"
+        },
+        {
+          "name": "No, I need to go now",
+          "link": "End",
+          "pid": "5"
+        }
+      ],
+      "name": "HelloSheep",
+      "pid": "2",
+      "position": {
+        "x": "583",
+        "y": "288.5"
+      }
+    },
+    {
+      "text": "Sheep:...",
+      "name": "cuteSheep",
+      "pid": "3",
+      "position": {
+        "x": "277",
+        "y": "291.5"
+      }
+    },
+    {
+      "text": "Sheep:Okay, but I can't talk with you now.\nSheep:See you later.",
+      "name": "CanSpeak",
+      "pid": "4",
+      "position": {
+        "x": "471",
+        "y": "440.5"
+      }
+    },
+    {
+      "text": "Sheep:What a strange human...",
+      "name": "End",
+      "pid": "5",
+      "position": {
+        "x": "657",
+        "y": "450.5"
+      }
+    }
+  ],
+  "name": "Sheep",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.7",
+  "ifid": "4C1BF21C-AF75-4BB6-BB43-960F9A652CD0"
+}

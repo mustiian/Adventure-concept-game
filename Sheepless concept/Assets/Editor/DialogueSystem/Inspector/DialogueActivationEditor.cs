@@ -10,49 +10,54 @@ using System.Linq;
 [CustomEditor(typeof(DialogueActivation))]
 public class DialogueActivationEditor : DefaultEditor<DialogueActivation>
 {
-    private string labelStartDialogue = "Start Dialogue";
-    private string[] dialogueOptions;
-    private int selectedOption = 0;
-    private int previousSelected = 0;
+    private Dialogue selectedOption;
 
     private DialogueActivation activation;
-    private DialoguesHandler[] allDialogueHandlers;
+    private DialoguesHandler dialogueHandler;
     private DialogueActivationCondition dialogueConditions;
     public override void OnCustomEnable()
     {
-        allDialogueHandlers = FindObjectsOfType<DialoguesHandler>();
-
         activation = (DialogueActivation)target;
+
+        foreach (var handler in FindObjectsOfType<DialoguesHandler>())
+        {
+            if (handler.StartDialogue == activation.StartDialogue)
+            {
+                dialogueHandler = handler;
+                break;
+            }
+        }
+
+        selectedOption = dialogueHandler.StartDialogue;
+        dialogueConditions = activation.Condition;
 
         if (dialogueConditions == null)
             dialogueConditions = activation.GetComponent<DialogueActivationCondition>();
-
-        dialogueOptions = new string[allDialogueHandlers.Length];
-
-        for (int i = 0; i < allDialogueHandlers.Length; i++)
-        {
-            dialogueOptions[i] = allDialogueHandlers[i].name;
-        } 
     }
 
     public override void OnCustomInspectorGUI()
     {
-        selectedOption = EditorGUILayout.Popup(labelStartDialogue, selectedOption, dialogueOptions);
+        dialogueHandler = (DialoguesHandler)EditorGUILayout.ObjectField("Start Dialogue",
+                dialogueHandler, typeof(DialoguesHandler), true);
 
         dialogueConditions = (DialogueActivationCondition)EditorGUILayout.ObjectField("Condition", 
                 dialogueConditions, typeof(DialogueActivationCondition), true);
 
-        activation.StartDialogue = allDialogueHandlers[selectedOption].StartDialogue;
+        if (dialogueHandler != null)
+            activation.StartDialogue = dialogueHandler.StartDialogue;
 
-        if (previousSelected != selectedOption)
+        activation.Condition = dialogueConditions;
+
+        if (dialogueHandler != null && dialogueHandler.StartDialogue != selectedOption)
         {
+            selectedOption = dialogueHandler.StartDialogue;
             EditorUtility.SetDirty(activation);
             EditorSceneManager.MarkSceneDirty(activation.gameObject.scene);
         }
 
         if (activation.StartDialogue == null)
         {
-            Debug.LogError("No Start Dialogue in the " + allDialogueHandlers[selectedOption].name);
+            Debug.LogError("No Start Dialogue in the " + dialogueHandler.name);
         }
     }
 }
