@@ -18,6 +18,8 @@ namespace TwineD
 
         private GUILayoutOption[] layoutOptions = { GUILayout.MaxWidth(300.0f), GUILayout.MinWidth(10.0f) };
 
+        private bool createPrefab;
+
         [MenuItem("Window/Twine Dialogue Parser")]
         private static void OpenWindow()
         {
@@ -32,8 +34,10 @@ namespace TwineD
 
         private void OnGUIDisplay()
         {
-            EditorGUILayout.LabelField("New dialogue prefab name:", layoutOptions);
+            EditorGUILayout.LabelField("New dialogue name:", layoutOptions);
             NewFileName = EditorGUILayout.TextField(NewFileName);
+
+            createPrefab = EditorGUILayout.Toggle("Save prefab to the Assets folder  ", createPrefab, layoutOptions);
 
             EditorGUILayout.LabelField("JSON dialogue file:", layoutOptions);
             FileJSON = (TextAsset)EditorGUILayout.ObjectField(FileJSON, typeof(TextAsset), true);
@@ -50,7 +54,9 @@ namespace TwineD
 
                 Debug.Log("End parsing");
 
-                //SaveObjectAsPrefab(dialogueObject);
+                // Save prefab 
+                if (createPrefab)
+                    SaveObjectAsPrefab(dialogueObject);
 
                 //DestroyImmediate(dialogueObject);
             }
