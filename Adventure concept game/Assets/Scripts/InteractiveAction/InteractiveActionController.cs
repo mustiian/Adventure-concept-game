@@ -8,9 +8,25 @@ public class InteractiveActionController : MonoBehaviour
 
     public ActivationCondition Condition;
 
-    public List<GameAction> Actions;
+    public GameObject ActionsObject;
+
+    private List<GameAction> actions = new List<GameAction>();
 
     private bool activated = false;
+
+    private void Awake()
+    {
+        if (!Condition)
+            Condition = GetComponent<ActivationCondition>();
+
+        if (ActionsObject)
+        {
+            foreach (var action in ActionsObject.GetComponentsInChildren<GameAction>())
+            {
+                actions.Add(action);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -18,7 +34,7 @@ public class InteractiveActionController : MonoBehaviour
         if ((!activated || Loop) && Condition.IsAccepted())
         {
             activated = true;
-            Actions.ForEach(action =>
+            actions.ForEach(action =>
             {
                 action.Activate();
             });
