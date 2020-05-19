@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DialogueAction : MonoBehaviour
+public abstract class DialogueAction : GameAction
 {
-    public abstract void Activate(); 
+    public enum ActionType {Start, End}
+
+    public ActionType ActionDialogueTimeActivation;
 }

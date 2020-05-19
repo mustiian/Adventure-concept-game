@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DialogueActivationCondition : MonoBehaviour
+public abstract class ActivationCondition : MonoBehaviour
 {
     public abstract bool IsAccepted();
 }

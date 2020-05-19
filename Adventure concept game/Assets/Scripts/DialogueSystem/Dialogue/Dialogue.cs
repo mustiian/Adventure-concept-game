@@ -13,12 +13,16 @@ public class Dialogue : MonoBehaviour
     [Range(0, 10)]
     public float Delay = 2f;
 
-    public List<DialogueAction> startDialogueAction = new List<DialogueAction>();
-    public List<DialogueAction> endDialogueAction = new List<DialogueAction>();
-
     public List<Dialogue> Responses = new List<Dialogue>();
 
     private ResponseButtonsController responseButtons;
+
+    private DialogueAction[] allActions;
+
+    private void Start()
+    {
+        allActions = GetComponents<DialogueAction>();
+    }
 
     public void StartDialogue(BubbleSpawner bubble, ResponseButtonsController buttons)
     {
@@ -26,13 +30,7 @@ public class Dialogue : MonoBehaviour
 
         bubble.Spawn (ref ActiveSentence.Position, ActiveSentence.Sentence, Delay, true);
 
-        if (startDialogueAction.Count > 0)
-        {
-            startDialogueAction.ForEach ((action) =>
-             {
-                 action.Activate ();
-             });
-        }
+        ActivateActions(DialogueAction.ActionType.Start);
 
         if (ActiveSentence.Character == DialogueActorType.NPC)
         {
@@ -58,13 +56,7 @@ public class Dialogue : MonoBehaviour
         if (NextActorIsPlayer())
             responseButtons.DeleteButtons ();
 
-        if (endDialogueAction.Count > 0)
-        {
-            endDialogueAction.ForEach (( action ) =>
-            {
-                action.Activate ();
-            });
-        }
+        ActivateActions(DialogueAction.ActionType.End);
 
         isActive = false;
     }
@@ -118,5 +110,14 @@ public class Dialogue : MonoBehaviour
     {
         yield return new WaitForSeconds (delay);
         responseButtons.UpdateButtons (Responses);
+    }
+
+    private void ActivateActions(DialogueAction.ActionType type)
+    {
+        for (int i = 0; i < allActions.Length; i++)
+        {
+            if (allActions[i].ActionDialogueTimeActivation == type)
+                allActions[i].Activate();
+        }
     }
 }
