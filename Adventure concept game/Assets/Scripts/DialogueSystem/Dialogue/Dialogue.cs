@@ -6,8 +6,6 @@ public class Dialogue : MonoBehaviour
 {
     public SentenceWrapper ActiveSentence = new SentenceWrapper();
 
-    public Dialogue NextDialogue { get; private set; }
-
     public bool isActive { get; private set; }
 
     [Range(0, 10)]
@@ -116,7 +114,7 @@ public class Dialogue : MonoBehaviour
     {
         for (int i = 0; i < allActions.Length; i++)
         {
-            if (allActions[i].ActionDialogueTimeActivation == type)
+            if (allActions[i].TimeTypeActivation == type)
                 allActions[i].Activate();
         }
     }

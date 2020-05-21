@@ -6,5 +6,5 @@ public abstract class DialogueAction : GameAction
 {
     public enum ActionType {Start, End}
 
-    public ActionType ActionDialogueTimeActivation;
+    public ActionType TimeTypeActivation;
 }

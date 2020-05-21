@@ -14,10 +14,6 @@ public class ResponseButtonsController : MonoBehaviour
 
     public Animator BubblePanelAnimator;
 
-    public Vector2 Offset;
-    public Vector2 Position;
-
-
     public void AddButton(Dialogue response, int index)
     {
         GameObject buttonObject = (GameObject)Instantiate (ButtonPrefab, Vector3.zero, AnswerUI.transform.rotation, AnswerUI.transform);

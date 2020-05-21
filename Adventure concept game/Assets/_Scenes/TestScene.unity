@@ -155,8 +155,6 @@ MonoBehaviour:
     type: 3}
   AnswerUI: {fileID: 316561225}
   BubblePanelAnimator: {fileID: 1925058645}
-  Offset: {x: 0, y: 0}
-  Position: {x: 0, y: 0}
 --- !u!114 &11255112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3142,7 +3140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f9fb47d489d9f43b55abe7b628bdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionDialogueTimeActivation: 0
+  TimeTypeActivation: 0
   DialogueActivation: {fileID: 2029319417}
   NewStartDialogue: {fileID: 230639369}
 --- !u!1 &638380776
@@ -5865,7 +5863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d66006b838ca6478a7d32a898b93a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionDialogueTimeActivation: 0
+  TimeTypeActivation: 0
   Objects:
   - {fileID: 698993471}
 --- !u!1 &1298026975
@@ -6010,7 +6008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdc95c88d735f44abe936a98140fdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionDialogueTimeActivation: 1
+  TimeTypeActivation: 0
   sceneChangerCondition: {fileID: 532389008}
 --- !u!1 &1306555320
 GameObject:
@@ -6056,7 +6054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f9fb47d489d9f43b55abe7b628bdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionDialogueTimeActivation: 1
+  TimeTypeActivation: 0
   DialogueActivation: {fileID: 2029319417}
   NewStartDialogue: {fileID: 1137387928}
 --- !u!114 &1306555323
