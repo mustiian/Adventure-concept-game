@@ -7,6 +7,7 @@ public class StaticSpriteSortLayer : MonoBehaviour
     void Start()
     {
         var sprite = GetComponent<SpriteRenderer>();
+
         sprite.sortingOrder = (-1) * (int)transform.position.z;
     }
 }

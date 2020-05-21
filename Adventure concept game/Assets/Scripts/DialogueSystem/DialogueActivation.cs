@@ -6,7 +6,7 @@ public class DialogueActivation : MonoBehaviour
 {
     public Dialogue StartDialogue;
 
-    public DialogueActivationCondition Condition;
+    public ActivationCondition Condition;
 
     private DialogueManager dm;
 

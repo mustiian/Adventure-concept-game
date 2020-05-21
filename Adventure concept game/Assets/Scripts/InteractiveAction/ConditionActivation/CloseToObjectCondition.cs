@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseToObjectCondition : DialogueActivationCondition
+public class CloseToObjectCondition : ActivationCondition
 {
     public GameObject Object;
 

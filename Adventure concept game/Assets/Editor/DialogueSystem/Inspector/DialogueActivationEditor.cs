@@ -14,7 +14,7 @@ public class DialogueActivationEditor : DefaultEditor<DialogueActivation>
 
     private DialogueActivation activation;
     private DialoguesHandler dialogueHandler;
-    private DialogueActivationCondition dialogueConditions;
+    private ActivationCondition dialogueConditions;
     public override void OnCustomEnable()
     {
         activation = (DialogueActivation)target;
@@ -32,7 +32,7 @@ public class DialogueActivationEditor : DefaultEditor<DialogueActivation>
         dialogueConditions = activation.Condition;
 
         if (dialogueConditions == null)
-            dialogueConditions = activation.GetComponent<DialogueActivationCondition>();
+            dialogueConditions = activation.GetComponent<ActivationCondition>();
     }
 
     public override void OnCustomInspectorGUI()
@@ -40,8 +40,8 @@ public class DialogueActivationEditor : DefaultEditor<DialogueActivation>
         dialogueHandler = (DialoguesHandler)EditorGUILayout.ObjectField("Start Dialogue",
                 dialogueHandler, typeof(DialoguesHandler), true);
 
-        dialogueConditions = (DialogueActivationCondition)EditorGUILayout.ObjectField("Condition", 
-                dialogueConditions, typeof(DialogueActivationCondition), true);
+        dialogueConditions = (ActivationCondition)EditorGUILayout.ObjectField("Condition", 
+                dialogueConditions, typeof(ActivationCondition), true);
 
         if (dialogueHandler != null)
             activation.StartDialogue = dialogueHandler.StartDialogue;
