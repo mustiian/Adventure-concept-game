@@ -22,20 +22,17 @@ public class SheepWalkStage : Stage
         target = Vector3.zero;
 
         if (RandomNavmeshLocation(transform.position, RadiusToWalk, out target))
-        {
             meshAgent.SetDestination(target);
-            animator.SetTrigger("Walk");
-        }
         else
             ExitStage();
 
         var lookDirection = (target - meshAgent.transform.position).normalized;
+        animator.SetTrigger("Walk");
 
         if (lookDirection.x > 0)
             animator.GetComponent<SpriteRenderer>().flipX = true;
         else
             animator.GetComponent<SpriteRenderer>().flipX = false;
-
     }
 
     public override void UpdateStage()

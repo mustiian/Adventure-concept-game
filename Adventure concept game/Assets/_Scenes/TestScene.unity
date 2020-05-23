@@ -375,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &64911403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 1025
   m_UseGeometry: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -3155,7 +3155,7 @@ GameObject:
   - component: {fileID: 638380780}
   - component: {fileID: 638380779}
   - component: {fileID: 638380778}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5864,6 +5864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeTypeActivation: 0
+  ObjectsActiveType: 0
   Objects:
   - {fileID: 698993471}
 --- !u!1 &1298026975
@@ -6021,6 +6022,7 @@ GameObject:
   - component: {fileID: 1306555321}
   - component: {fileID: 1306555323}
   - component: {fileID: 1306555322}
+  - component: {fileID: 1306555324}
   m_Layer: 0
   m_Name: Dialogue 10
   m_TagString: Untagged
@@ -6054,7 +6056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f9fb47d489d9f43b55abe7b628bdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeTypeActivation: 0
+  TimeTypeActivation: 1
   DialogueActivation: {fileID: 2029319417}
   NewStartDialogue: {fileID: 1137387928}
 --- !u!114 &1306555323
@@ -6075,6 +6077,22 @@ MonoBehaviour:
     Character: 0
   Delay: 2
   Responses: []
+--- !u!114 &1306555324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306555320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d66006b838ca6478a7d32a898b93a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeTypeActivation: 0
+  ObjectsActiveType: 0
+  Objects:
+  - {fileID: 64911402}
 --- !u!1 &1331669053
 GameObject:
   m_ObjectHideFlags: 0
@@ -10105,6 +10123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 468492384953268724}
   - component: {fileID: 468492384953268720}
+  - component: {fileID: 468492384953268726}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -10112,6 +10131,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!208 &468492384953268726
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468492384953268725}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 6.865, y: 1.25, z: 1.96}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.36, z: 1.19}
+  m_TimeToStationary: 0.5
 --- !u!114 &468492386503803648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10935,7 +10970,7 @@ PrefabInstance:
     - target: {fileID: 6917397053007256390, guid: 730610ed2c8abb944ad45c0219ce1fce,
         type: 3}
       propertyPath: m_Name
-      value: Poli
+      value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 6917397053007256391, guid: 730610ed2c8abb944ad45c0219ce1fce,
         type: 3}
