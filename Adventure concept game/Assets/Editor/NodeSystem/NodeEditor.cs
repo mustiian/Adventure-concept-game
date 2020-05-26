@@ -195,31 +195,26 @@ public class NodeEditor<T> : EditorWindow where T: Node
     {
         if (point.connectionType == NodeConnectioPoint.Type.In)
         {
-            selectedPointIn = point;
-
-            if (selectedPointOut != null)
-            {
-                if (selectedPointIn.node != selectedPointOut.node)
-                {
-                    NodeConnection conn = CreateConnection();
-                    connections.Add(conn);
-                }
-                RemoveSelectedPoints();
-            }
+            ConnectPoints(point, ref selectedPointIn, ref selectedPointOut);
         }
         else if (point.connectionType == NodeConnectioPoint.Type.Out)
         {
-            selectedPointOut = point;
+            ConnectPoints(point, ref selectedPointOut, ref selectedPointIn);
+        }
+    }
 
-            if (selectedPointIn != null)
+    private void ConnectPoints(NodeConnectioPoint NewPoint, ref NodeConnectioPoint connectPoint, ref NodeConnectioPoint checkPoint)
+    {
+        connectPoint = NewPoint;
+
+        if (checkPoint != null)
+        {
+            if (checkPoint.node != connectPoint.node)
             {
-                if (selectedPointIn.node != selectedPointOut.node)
-                {
-                    NodeConnection conn = CreateConnection();
-                    connections.Add(conn);
-                }
-                RemoveSelectedPoints();
+                NodeConnection conn = CreateConnection();
+                connections.Add(conn);
             }
+            RemoveSelectedPoints();
         }
     }
 

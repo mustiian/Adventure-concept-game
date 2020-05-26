@@ -375,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &64911403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6022,7 +6022,6 @@ GameObject:
   - component: {fileID: 1306555321}
   - component: {fileID: 1306555323}
   - component: {fileID: 1306555322}
-  - component: {fileID: 1306555324}
   m_Layer: 0
   m_Name: Dialogue 10
   m_TagString: Untagged
@@ -6077,22 +6076,6 @@ MonoBehaviour:
     Character: 0
   Delay: 2
   Responses: []
---- !u!114 &1306555324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306555320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7d66006b838ca6478a7d32a898b93a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeTypeActivation: 0
-  ObjectsActiveType: 0
-  Objects:
-  - {fileID: 64911402}
 --- !u!1 &1331669053
 GameObject:
   m_ObjectHideFlags: 0
