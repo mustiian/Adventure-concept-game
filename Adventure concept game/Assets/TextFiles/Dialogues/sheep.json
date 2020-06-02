@@ -1,7 +1,7 @@
 {
   "passages": [
     {
-      "text": "Sheep:...\n[[Hello?->HelloSheep]]\n[[So cute sheep!->cuteSheep]]",
+      "text": "Sheep:Beeee\n[[Hello?->HelloSheep]]\n[[So cute sheep!->cuteSheep]]",
       "links": [
         {
           "name": "Hello?",
@@ -17,8 +17,8 @@
       "name": "Start",
       "pid": "1",
       "position": {
-        "x": "404",
-        "y": "170.5"
+        "x": "841",
+        "y": "247"
       }
     },
     {
@@ -43,8 +43,8 @@
       "name": "HelloSheep",
       "pid": "2",
       "position": {
-        "x": "583",
-        "y": "288.5"
+        "x": "1022",
+        "y": "366"
       }
     },
     {
@@ -52,8 +52,8 @@
       "name": "cuteSheep",
       "pid": "3",
       "position": {
-        "x": "277",
-        "y": "291.5"
+        "x": "716",
+        "y": "369"
       }
     },
     {
@@ -61,8 +61,8 @@
       "name": "CanSpeak",
       "pid": "4",
       "position": {
-        "x": "471",
-        "y": "440.5"
+        "x": "910",
+        "y": "518"
       }
     },
     {
@@ -70,8 +70,8 @@
       "name": "End",
       "pid": "5",
       "position": {
-        "x": "657",
-        "y": "450.5"
+        "x": "1096",
+        "y": "528"
       }
     }
   ],

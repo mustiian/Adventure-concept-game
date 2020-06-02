@@ -25,7 +25,7 @@ public class NodeEditor<T> : EditorWindow where T: Node
         pointStyle.normal.background = EditorGUIUtility.Load("node_point_graphic.png") as Texture2D;
         pointStyle.active.background = EditorGUIUtility.Load("node_point_graphic_active.png") as Texture2D;
 
-        closeNodeButtonStyle.normal.background = EditorGUIUtility.Load("node_point_graphic_active.png") as Texture2D;
+        closeNodeButtonStyle.normal.background = EditorGUIUtility.Load("node_point_graphic_close.png") as Texture2D;
 
         connectionButtonStyle.normal.background = EditorGUIUtility.Load("node_point_button_graphic.png") as Texture2D;
     }

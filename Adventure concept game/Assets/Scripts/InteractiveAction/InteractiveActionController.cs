@@ -33,11 +33,16 @@ public class InteractiveActionController : MonoBehaviour
     {
         if ((!activated || Loop) && Condition.IsAccepted())
         {
-            activated = true;
-            actions.ForEach(action =>
-            {
-                action.Activate();
-            });
+            ActivateActions();
         }
+    }
+
+    public void ActivateActions()
+    {
+        activated = true;
+        actions.ForEach(action =>
+        {
+            action.Activate();
+        });
     }
 }
