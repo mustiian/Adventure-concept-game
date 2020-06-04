@@ -1,5 +1,5 @@
 # Adventure concept game
-Source code of the proof-of-concept 2D adventure game made for bachelor's thesis.
+Source code of the proof-of-concept 2D adventure game made for the bachelor's thesis.
 
 ## Graphic style
 Style exemplars by Polina Akhmetzhanova © 2020 
